@@ -18,17 +18,17 @@ class _HomeState extends State<Home> {
   
   void changeCount(int sinal){
     setState(() {
-      _contadorPessoas += sinal;
+
+      if((sinal == 1 && _contadorPessoas < 5) || (sinal == -1 && _contadorPessoas > 0) ){
+        _contadorPessoas += sinal;
+      }
       changeText();
     });
   }
 
   void changeText(){
-    if(_contadorPessoas > 5){
+    if(_contadorPessoas ==5){
       _infoTexto = "Lotado, aguarde!";
-    }
-    else if(_contadorPessoas<0){
-      _infoTexto = "Clickou errado, amigo?";
     }
     else{
       _infoTexto = "Pode entrar!";
